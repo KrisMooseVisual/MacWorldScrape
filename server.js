@@ -34,4 +34,4 @@ app.set("view engine", "handlebars");
 
 // Connect to the Mongo DB
 mongoose.connect("mongodb://localhost/macWorldDB", { useNewUrlParser: true });
-// mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI);
