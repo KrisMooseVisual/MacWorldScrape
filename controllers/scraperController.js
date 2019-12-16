@@ -30,10 +30,10 @@ router.get("/scrape", function (req, res) {
                 .children("a")
                 .text();
             result.link = $(this)
-            .find("p.crawl-headline")
+                .find("p.crawl-headline")
                 .children("a")
                 .attr("href");
-                result.summary = $(this)
+            result.summary = $(this)
                 .find("p.crawl-summary")
                 .text();
             console.log(result);
@@ -44,12 +44,13 @@ router.get("/scrape", function (req, res) {
 });
 
 router.get("/articles", function (req, res) {
-    db.Article.find({})
-        .then(function (dbArticle) {
-            res.json(dbArticle);
-        })
-        .catch(function (err) {
-            res.json(err);
+    Article.find({})
+        .exec(function (err, doc) {
+            if (err) {
+                consold.log(error);
+            } else {
+                res.json(doc);
+            }
         });
 });
 
